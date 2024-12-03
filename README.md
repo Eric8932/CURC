@@ -11,7 +11,7 @@ In the **task_template** folder, we have information about each dataset, includi
 
 ## Code
 
-###LLMs-as-a-Judge
+### LLMs-as-a-Judge
 We have each of the three LLMs give the label for each sample in the dataset. In the prompt, we include the judge criteria for each label as well as 8 examples.
 
 ```
@@ -22,7 +22,7 @@ python3 code/judge.py --data_path /data/TNEWS/train.json \
         --fewshot_number 8;
 ```
 
-###Rationale Generation
+### Rationale Generation
 We have an LLM generate the rationale for the label of each sample.
 There are three prompt designs to choose from: 1. Providing only the label. 2.Adding Label Criteria. 3.Adding 8-shot exemplars.
 
@@ -45,7 +45,7 @@ python3 code/generate_rationale.py ---data_path /data/TNEWS/train.json \
 
 ```
 
-###Constructing Training Data
+### Constructing Training Data
 With the cleaned data and rationales for each sample, we construct the training data in the Alpaca format.
 We have three training approaches, corresponding to three data construction methods:
 PREDICT: Directly output the label.
@@ -72,7 +72,7 @@ python3 code/construct_data.py --data_path /data/TNEWS/train.json \
 ```
 
 
-##TRAINING & INFERENCE
+## TRAINING & INFERENCE
 We use [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for training our models and implementing different training methods.
 We use [vllm](https://github.com/vllm-project/vllm) for inferening the trained models.
 
